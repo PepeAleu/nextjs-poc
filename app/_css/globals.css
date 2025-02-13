@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #ed1d24;
+}
+
+/* Para navegadores basados en WebKit */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); /* Color del pulgar */
+  border-radius: 10px; /* Esquinas redondeadas */
+  border: 2px solid #f1f1f1; /* Opcional: borde para separar del track */
+}
+
+body {
+  scrollbar-width: thin; /* Hace el scrollbar fino */
+  scrollbar-color: var(--color-primary) #f1f1f1; /* Color del pulgar y del track */
+}
