@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import Header from '@/ui/header'
+import Header from '@/app/_components/Header'
 
 vi.mock('next/router', () => ({
 	useRouter: vi.fn(() => {
