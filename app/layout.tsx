@@ -34,13 +34,13 @@ export default function RootLayout({
       <link
         rel="apple-touch-icon"
         sizes="72x72"
-        href={`/favicons/favicon-72.png`}
+        href={"/favicons/favicon-72.png"}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`/favicons/favicon-32.png`}
+        href={"/favicons/favicon-32.png"}
       />
       <meta
         name="theme-color"
