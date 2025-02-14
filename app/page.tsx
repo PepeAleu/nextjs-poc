@@ -8,7 +8,7 @@ interface Params {
 }
 type AsyncParams = Promise<Params>;
 
-export const revalidate = 3600; // invalidate every hour
+export const revalidate = 604800;
 
 export default async function Home({
   searchParams,

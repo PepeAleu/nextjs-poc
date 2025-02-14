@@ -2,19 +2,16 @@ import Search from "../_components/Search";
 import FavoritesList from "../_components/FavoritesList";
 import FavoritesListCounter from "../_components/FavoritesListCounter";
 
-interface Params {
-  query?: string;
-}
-type AsyncParams = Promise<Params>;
-
-export const revalidate = 3600; // invalidate every hour
+export const revalidate = 604800;
 
 export default async function Favorites({
   searchParams,
 }: {
-  readonly searchParams: AsyncParams;
+  readonly searchParams: Promise<{
+    query?: string;
+  }>;
 }) {
-  const params: Params = await searchParams;
+  const params = await searchParams;
   const query = params.query ?? "";
 
   return (
