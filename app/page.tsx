@@ -20,11 +20,10 @@ export default async function Home({
   return (
     <div className="p-3">
       <Search initialQuery={query}>
-        <div className="mt-2 text-xs font-medium">
+        <div>
           <Suspense key={query} fallback={"..."}>
             <CharacterCounter query={query} />
           </Suspense>{" "}
-          RESULTS
         </div>
       </Search>
 

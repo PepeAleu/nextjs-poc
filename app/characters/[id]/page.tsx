@@ -16,7 +16,7 @@ export default async function Page({
 
   return (
     <>
-      <article className="bg-black">
+      <article className="bg-black border-t border-gray-700 [clip-path:polygon(0_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%)]">
         <section className="flex h-4/6 flex-col mx-auto md:flex-row max-w-[960px]">
           <Image
             className="w-full md:w-[278px] lg:w-[320px]"
@@ -28,23 +28,25 @@ export default async function Page({
             quality={60}
             priority={true}
           />
-          <div className="flex flex-col px-4 py-6 justify-center">
+          <div className="flex flex-col px-4 py-6 justify-center flex-1">
             <div className="flex justify-between items-center">
-              <h1 className="text-white text-2xl font-bold tracking-wide uppercase font-mono">
+              <h1 className="text-white text-2xl font-bold tracking-wide uppercase">
                 {detail.name}
               </h1>
               <FavoriteButton character={detail} />
             </div>
-            <p className="text-white text-xs font-normal tracking-tighter font-mono my-4">
+            <p className="text-white text-xs font-normal tracking-tighter my-4">
               {detail.description}
             </p>
           </div>
         </section>
       </article>
       <article>
-        <Suspense fallback={<div className="my-4">Loading...</div>}>
-          <ComicsList id={id} />
-        </Suspense>
+        <div className="py-4 pl-4 lg:pl-0 mx-auto max-w-[960px]">
+          <Suspense fallback={<div className="my-4">Loading...</div>}>
+            <ComicsList id={id} />
+          </Suspense>
+        </div>
       </article>
     </>
   );

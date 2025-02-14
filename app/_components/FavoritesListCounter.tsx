@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { FavoritesContext } from "../_providers/FavoritesProvider";
+import ResultCounter from "./ResultCounter";
 
 export default function FavoritesListCounter({
   query,
@@ -10,5 +11,6 @@ export default function FavoritesListCounter({
 }) {
   const { filterFavorites } = useContext(FavoritesContext);
   const list = filterFavorites(query);
-  return list?.length ?? 0;
+  const counter = list?.length ?? 0;
+  return <ResultCounter counter={counter} />;
 }
