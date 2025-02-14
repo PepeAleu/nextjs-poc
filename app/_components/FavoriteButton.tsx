@@ -16,6 +16,8 @@ const FavoriteButton = ({ character }: { character: ICharacter }) => {
 
   return (
     <button
+      className="py-3 px-3"
+      aria-label="Favorite button"
       onClick={(event) => {
         event.preventDefault();
         toggleFavorite(character);
