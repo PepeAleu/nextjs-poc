@@ -30,7 +30,7 @@ const CharacterCard = forwardRef<HTMLDivElement, CharacterCardProps>(
           </div>
           <div className="h-[3px] w-full bg-red-600" />
           <div
-            className="flex items-center justify-between py-4 px-3"
+            className="flex items-center justify-between py-3 pl-3"
             aria-label="Character information"
           >
             <h2 className="text-white text-xs tracking-wide uppercase font-mono">
