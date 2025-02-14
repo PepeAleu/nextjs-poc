@@ -1,10 +1,10 @@
-"use server";
-
 import ComicsList from "@/app/_components/ComicsList";
 import { FavoriteButton } from "@/app/_components/FavoriteButton";
 import { getCharacterDetail } from "@/modules/characters/application/getCharacterDetail";
 import Image from "next/image";
 import { Suspense } from "react";
+
+export const revalidate = 604800;
 
 export default async function Page({
   params,
