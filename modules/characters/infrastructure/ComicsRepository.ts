@@ -18,7 +18,7 @@ export class ComicsRepository implements IGetAllRepository<IApiComic> {
   };
 
   async getAll(params?: IGetAllParams): Promise<IApiComic[]> {
-    let url = `${this.repositoryData.apiHost}characters/${params?.id}/comics?${this.repositoryData.authParams}&limit=${this.repositoryData.limitComics}`;
+    let url = `${this.repositoryData.apiHost}characters/${params?.id}/comics?${this.repositoryData.authParams}`;
 
     const response: Response = await fetch(url, this.fetchConfig);
 

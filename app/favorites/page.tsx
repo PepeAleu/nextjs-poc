@@ -23,7 +23,7 @@ export default async function Favorites({
         Favorites
       </h2>
       <Search initialQuery={query}>
-        <FavoritesListCounter query={query} /> RESULTS
+        <FavoritesListCounter query={query} />
       </Search>
       <FavoritesList query={query}></FavoritesList>
     </div>

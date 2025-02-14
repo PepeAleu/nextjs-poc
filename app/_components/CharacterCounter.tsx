@@ -1,4 +1,5 @@
 import { getCharacters } from "@/modules/characters/application/getCharacters";
+import ResultCounter from "./ResultCounter";
 
 export default async function CharacterCounter({
   query,
@@ -6,6 +7,7 @@ export default async function CharacterCounter({
   readonly query?: string;
 }) {
   const result = await getCharacters(query);
-  const counter: string = result.length.toString();
-  return counter;
+  const counter = result.length;
+
+  return <ResultCounter counter={counter} />;
 }

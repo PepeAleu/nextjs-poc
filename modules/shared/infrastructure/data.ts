@@ -4,7 +4,6 @@ export interface IRepositoryData {
 	apiHost: string;
 	authParams: string;
 	limitCharacters: string;
-	limitComics: string;
 }
 
 let repositoryData: IRepositoryData;
@@ -19,11 +18,11 @@ export function getRepositoryData(): IRepositoryData {
 	const hash = createHash("md5")
 		.update(ts + privateKey + publicKey)
 		.digest("hex");
+
 	repositoryData = {
 		apiHost: 'http://gateway.marvel.com/v1/public/',
 		authParams: `ts=${ts}&apikey=${publicKey}&hash=${hash}`,
-		limitCharacters: '2',
-		limitComics: '10',
+		limitCharacters: '50'
 	};
 	return repositoryData;
 }
