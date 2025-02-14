@@ -1,6 +1,8 @@
+"use client";
+
 import { pluralize } from "../_utils/intl";
 
-export default async function ResultCounter({
+export default function ResultCounter({
   counter,
 }: {
   readonly counter: number;
