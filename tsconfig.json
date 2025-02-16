@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "types": [
+      "node",
+      "react",
+      "react-dom",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "@testing-library/jest-dom"
+    ],
     "baseUrl": ".",
     "lib": [
       "dom",

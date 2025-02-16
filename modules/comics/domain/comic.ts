@@ -1,6 +1,7 @@
 import { IComic } from "./IComic";
 import { IApiComic } from "./IComicResponse";
 
+
 export function comic(data: IApiComic[]): IComic[] {
 	return data.map((comic) => {
 		return {

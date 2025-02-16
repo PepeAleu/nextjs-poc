@@ -1,5 +1,5 @@
-import { getComicsByCharacterId } from "@/modules/characters/application/getComicsByCharacterId";
-import { IComic } from "@/modules/characters/domain/IComic";
+import { getComicsByCharacterId } from "@/modules/comics/application/getComicsByCharacterId";
+import { IComic } from "@/modules/comics/domain/IComic";
 import ComicsItem from "./ComicItem";
 
 export default async function ComicsList({ id }: { readonly id: string }) {

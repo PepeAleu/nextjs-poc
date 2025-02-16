@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { forwardRef } from "react";
-import { FavoriteButton } from "./FavoriteButton";
 import { ICharacter } from "@/modules/characters/domain/ICharacter";
 import Link from "next/link";
+import FavoriteButton from "./FavoriteButton";
 
 interface CharacterCardProps {
   character: ICharacter;
@@ -13,14 +13,19 @@ interface CharacterCardProps {
 const CharacterCard = forwardRef<HTMLDivElement, CharacterCardProps>(
   ({ character }, ref) => {
     return (
-      <Link href={`/characters/${character.id}`} title="View character details">
+      <Link
+        data-testid="character-link"
+        href={`/characters/${character.id}`}
+        title="View character details"
+      >
         <article
           ref={ref}
           className="flex h-full flex-col bg-black overflow-hidden clip-path-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary [clip-path:polygon(0_0,100%_0,100%_calc(100%-13px),calc(100%-13px)_100%,0_100%)]"
         >
           <div className="overflow-hidden aspect-[4/4] bg-black relative flex items-center justify-center flex-1">
             <Image
-              src={character.image || "/placeholder.svg"}
+              data-testid="character-image"
+              src={character.image || "/marvel-logo.png"}
               alt={`Portrait of ${character.name}`}
               fill
               priority={false}

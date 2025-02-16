@@ -28,4 +28,4 @@ const FavoriteButton = ({ character }: { character: ICharacter }) => {
   );
 };
 
-export { FavoriteButton };
+export default FavoriteButton;

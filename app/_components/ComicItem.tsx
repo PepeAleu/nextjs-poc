@@ -1,4 +1,4 @@
-import { IComic } from "@/modules/characters/domain/IComic";
+import { IComic } from "@/modules/comics/domain/IComic";
 import Image from "next/image";
 
 export default async function ComicsItem({

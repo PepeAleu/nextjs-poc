@@ -1,5 +1,5 @@
 import { IApiComicSummary, IApiEventList, IApiImage, IApiSeriesSummary, IApiStoryList } from "@/modules/shared/domain/IResponse";
-import { IApiUrl } from "./ICharacterResponse";
+import { IApiUrl } from "../../characters/domain/ICharacterResponse";
 
 export interface IApiComic {
 	id: number;

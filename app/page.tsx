@@ -2,6 +2,7 @@ import CharacterList from "@/app/_components/CharacterList";
 import Search from "./_components/Search";
 import { Suspense } from "react";
 import CharacterCounter from "./_components/CharacterCounter";
+import ResultCounter from "./_components/ResultCounter";
 
 interface Params {
   query?: string;
@@ -21,7 +22,10 @@ export default async function Home({
     <div className="p-3">
       <Search initialQuery={query}>
         <div>
-          <Suspense key={query} fallback={"..."}>
+          <Suspense
+            key={query}
+            fallback={<ResultCounter counter={0}></ResultCounter>}
+          >
             <CharacterCounter query={query} />
           </Suspense>{" "}
         </div>
