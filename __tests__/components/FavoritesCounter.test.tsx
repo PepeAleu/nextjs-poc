@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import { FavoritesCounter } from "@/app/_components/FavoritesCounter";
 import { FavoritesContext } from "@/app/_providers/FavoritesProvider";
+import FavoritesCounter from "@/app/_components/FavoritesCounter";
 
 const TestProvider = ({
   children,

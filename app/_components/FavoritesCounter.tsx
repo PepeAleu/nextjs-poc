@@ -4,7 +4,7 @@ import { FavoritesContext } from "@/app/_providers/FavoritesProvider";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
 
-const FavoritesCounter = () => {
+export default function FavoritesCounter() {
   const { favorites } = useContext(FavoritesContext);
 
   return (
@@ -16,6 +16,4 @@ const FavoritesCounter = () => {
       {favorites.size}
     </div>
   );
-};
-
-export { FavoritesCounter };
+}

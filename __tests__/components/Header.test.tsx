@@ -4,7 +4,7 @@ import { describe, it, expect, vi } from "vitest";
 import Header from "@/app/_components/Header";
 
 vi.mock("@/app/_components/FavoritesCounter", () => ({
-  FavoritesCounter: () => <div>FavoritesCounter</div>,
+  default: () => <div>FavoritesCounter</div>,
 }));
 
 describe.concurrent("Header", () => {

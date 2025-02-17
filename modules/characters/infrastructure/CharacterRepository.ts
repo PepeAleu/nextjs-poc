@@ -17,18 +17,23 @@ export class CharacterRepository implements IGetRepository<IApiCharacter>, IGetA
   async getOne(id: string): Promise<IApiCharacter> {
     let url = `${this.repositoryData.apiHost}characters/${id}?${this.repositoryData.authParams}`;
 
-    const response: Response = await fetch(url, this.fetchConfig);
+    try {
+      const response: Response = await fetch(url, this.fetchConfig);
 
-    if (!response.ok) {
-      if (response.status === 404) {
-        redirect("/");
+      if (!response.ok) {
+        if (response.status === 404) {
+          redirect("/");
+        }
+        throw new Error(`Get character error: ${response.statusText}`);
       }
-      throw new Error(`Get character error: ${response.statusText}`);
+
+      const data: IApiMarvelAPIResponse<[IApiCharacter]> = await response.json();
+
+      return data.data.results[0];
+    } catch (error) {
+      redirect("/");
     }
 
-    const data: IApiMarvelAPIResponse<[IApiCharacter]> = await response.json();
-
-    return data.data.results[0];
   }
 
   async getAll(params?: IGetAllParams): Promise<IApiCharacter[]> {
@@ -38,15 +43,20 @@ export class CharacterRepository implements IGetRepository<IApiCharacter>, IGetA
       url += `&nameStartsWith=${encodeURIComponent(params.nameStartsWith)}`;
     }
 
-    const response: Response = await fetch(url, this.fetchConfig);
+    try {
+      const response: Response = await fetch(url, this.fetchConfig);
 
-    if (!response.ok) {
-      throw new Error(`Get characters error: ${response.statusText}`);
+      if (!response.ok) {
+        throw new Error(`Get characters error: ${response.statusText}`);
+      }
+
+      const data: IApiMarvelAPIResponse<IApiCharacter[]> = await response.json();
+
+      return data.data.results;
+    } catch (error) {
+      redirect("/");
     }
 
-    const data: IApiMarvelAPIResponse<IApiCharacter[]> = await response.json();
-
-    return data.data.results;
 
   }
 

@@ -5,7 +5,6 @@ import FavoritesProvider from "./_providers/FavoritesProvider";
 import Header from "./_components/Header";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
     template: `%s | ${siteMetadata.title}`,

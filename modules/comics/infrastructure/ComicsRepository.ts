@@ -9,6 +9,7 @@ import {
   IGetAllRepository,
 } from "@/modules/shared/domain/IGetAllRepository";
 import { IApiComic } from "../domain/IComicResponse";
+import { redirect } from "next/navigation";
 
 export class ComicsRepository implements IGetAllRepository<IApiComic> {
   repositoryData: IRepositoryData = getRepositoryData();
@@ -20,14 +21,19 @@ export class ComicsRepository implements IGetAllRepository<IApiComic> {
   async getAll(params?: IGetAllParams): Promise<IApiComic[]> {
     let url = `${this.repositoryData.apiHost}characters/${params?.id}/comics?${this.repositoryData.authParams}`;
 
-    const response: Response = await fetch(url, this.fetchConfig);
+    try {
+      const response: Response = await fetch(url, this.fetchConfig);
 
-    if (!response.ok) {
-      return [];
+      if (!response.ok) {
+        return [];
+      }
+
+      const data: IApiMarvelAPIResponse<IApiComic[]> = await response.json();
+
+      return data.data.results;
+    } catch (error) {
+      redirect("/");
     }
 
-    const data: IApiMarvelAPIResponse<IApiComic[]> = await response.json();
-
-    return data.data.results;
   }
 }

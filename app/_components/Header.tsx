@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FavoritesCounter } from "./FavoritesCounter";
+import FavoritesCounter from "./FavoritesCounter";
 import Link from "next/link";
 
 const Header = () => {

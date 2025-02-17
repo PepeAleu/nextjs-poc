@@ -3,6 +3,7 @@ import Search from "./_components/Search";
 import { Suspense } from "react";
 import CharacterCounter from "./_components/CharacterCounter";
 import ResultCounter from "./_components/ResultCounter";
+import Loading from "./loading";
 
 interface Params {
   query?: string;
@@ -31,7 +32,7 @@ export default async function Home({
         </div>
       </Search>
 
-      <Suspense key={query} fallback={<div>Loading...</div>}>
+      <Suspense key={query} fallback={<Loading />}>
         <CharacterList query={query} />
       </Suspense>
     </div>
